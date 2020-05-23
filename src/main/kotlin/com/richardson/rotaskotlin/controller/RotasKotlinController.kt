@@ -13,13 +13,13 @@ import javax.validation.constraints.Size
 
 
 @RestController
-@RequestMapping("/")
+@RequestMapping
 class RotasKotlinController {
 
     @Autowired
     private lateinit var rotasKotlinService: RotasKotlinService
 
-    @GetMapping
+    @GetMapping("/rotas")
     fun listarRotas(): ResponseEntity<Any> {
         return try {
             ResponseEntity<Any>(this.rotasKotlinService.recuperarRotas(), HttpStatus.OK)
